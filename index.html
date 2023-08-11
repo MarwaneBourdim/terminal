@@ -8,10 +8,16 @@
 
 <style>
     :root {
-       --size: 1;
+       --size: 1.4;
        --color: #71ee79;
        --glow: 3;
        --background: rgb(0, 0, 0);
+    }
+
+    @media screen and (min-width: 1200px) {
+    :root {
+        --size: 1.4;
+    }
     }
 
     </style>
@@ -40,6 +46,71 @@ Wanna use my graphical interface website? Type [[;rgba(245, 40, 145, 0.99);]"gui
 ----
 Type [[;rgba(245, 40, 145, 0.99);;]"help"] to see available commands. 
        </template>
+
+        <template id="about_">
+Hi ! My name is Marwane Bourdim. 
+I am a recent math graduate from Université Paris-Cité and Sorbonne Université and [[b;rgba(250, 251, 180, 1);;]I am currently on the job market for data scientist and quantitative analyst positions].
+At the moment, I have had the opportunity to do two very enriching research internships:
+The first one at INRIA Paris-Saclay in the SIMBIOTX lab where I applied stochastic models to study disease propagation. 
+The second one at the European Research Institute in the Cancer Genomics lab in Cambridge (UK) where I used unsupervised machine learning methods
+to guess the proportions of different cell types in heteregeneous samples. Right after my second research internship, I became a teacher for 
+6 months from february to june 2023 at the prestigious Ecole Alsacienne in Paris. 
+
+My goal is to use math and computer science for the greater, learn more about ourselves and have fun :)
+[[b;rgba(250, 251, 180, 1);;]I am also interested in phd projects in machine Learning and mathematics], especially applied to biology, personalised medecine,
+linguistics and interspecies communication (a soft spot of mine is the CETI project)!
+
+Apart from math, I'm passionate about philosophy, drawing and teaching.
+        </template>
+
+        <template id="education_">
+[[b;rgba(250, 251, 180, 1);;]Master's degree in Mathematics, Statistics and Machine Learning]
+Université Paris-Cité, France | 2021 ~ 2022 
+
+[[b;rgba(250, 251, 180, 1);;]Master's degree in Mathematical Modeling]
+Sorbonne Université, France | 2020 ~ 2021 
+
+[[b;rgba(250, 251, 180, 1);;]Bachelor's degree in Pure Mathematics]
+Université Paris-Cité, France | 2018 ~ 2019 
+
+[[b;rgba(250, 251, 180, 1);;]Classe préparatoire aux grandes écoles MPSI-MP]
+Lycée Jacques Decour, France | 2016 ~ 2018 
+
+[[b;rgba(250, 251, 180, 1);;]IELTS 8]
+British Council | 2022  
+        </template>
+
+
+        <template id="projects_">
+[[b;rgba(250, 251, 180, 1);;]Cellular deconvolution algorithms for nanopore bulk methylation data]
+[[i;rgba(168, 218, 141, 1);;]Supervised by Isidro Cortés-Ciriano at European Bioinformatics Institute in the Cancer Genomics lab in Cambridge, United Kingdom  | February 2022 ~ January 2023]
+[[i;rgba(168, 218, 141, 1);;]Programming language: Python]
+[[;rgba(250, 251, 180, 1);;]Semi-technical summary:] DNA methylation is a process by which a certain molecule binds to parts of our DNA. 
+It plays an important role in the expression of our DNA and thus, different cell types have got different patterns of methylation. 
+Most of the time, in biology and medecine when we collect a sample, it is made of plenty of different cell types. 
+When we know the "typical" methylation pattern of given cell types we can lever the fact that different cell types have different methylation patterns 
+to estimate the proportions of the different cell types in a heteregeneous sample.
+During this internship, I developped two different machine learning algorithms to do so, and one can even estimate the proportion of "unknown" cell types. 
+(those for which we don't have their typical methylation patterns. )
+
+[[;rgba(250, 251, 180, 1);;]Technical summary:] I developped two methylation deconvolution algorithms for Nanopore data. 
+One supervised maximum-likelihood-estimation binomial regression algorithm 
+and an unsupervised modified version of NMF to co-estimate the proportions of the known celltypes, the proportion of unknowns
+cell types and the average methylation profile of the latter.
+
+
+
+[[b;rgba(250, 251, 180, 1);;]Mathematical and computational modeling of the Covid-19 pandemic in France with a spatio-temporal stochastic framework]
+[[i;rgba(168, 218, 141, 1);;]Supervised by Dirk Drasdo and Jules Dichamp at INRIA in the SIMBIOTX lab in Paris, France | April 2021 ~ September 2022]
+[[i;rgba(168, 218, 141, 1);;]Programming language: Python]
+[[;rgba(250, 251, 180, 1);;]Semi-technical summary:] We modeled the different French regions by nodes on a graph and we consider every one of those nodes as a compartment. 
+Inside of a compartment there are healthy, infected and recovered people. The frequency at which a healthy individual gets infected in a 
+compartment depends on the number of people in those 3 populations in the compartment. \nWe coded a simulation of this model to study the 
+evolution of those populations and then added complexity to the model by adding different strands of the virus, a "return-to-home" model for more 
+realistic individual movements and looked at different type of graph structures to study the influence of the topology on the pandemic dynamic (centralized vs federal country). 
+
+[[;rgba(250, 251, 180, 1);;]Technical summary:] We developped a variety of SIR compartment agent-based models via a set of Masters equations and we used the Gillespie algorithm for the simulations.                          
+        </template>
 <body>
 
     
@@ -51,41 +122,16 @@ Type [[;rgba(245, 40, 145, 0.99);;]"help"] to see available commands.
                 this.echo('[[;rgba(245, 40, 145, 0.99);;]about]\t\t     - quick description of myself\n[[;rgba(245, 40, 145, 0.99);;]clear]\t\t     - clears the terminal\n[[;rgba(245, 40, 145, 0.99);;]education]\t\t - my educational background\n[[;rgba(245, 40, 145, 0.99);;]projects]\t\t - my past/ongoing projects\n[[;rgba(245, 40, 145, 0.99);;]help]\t\t     - show all available commands\n[[;rgba(245, 40, 145, 0.99);;]gui]\t\t         - go to my graphical interface website\n[[;rgba(245, 40, 145, 0.99);;]socials]\t\t     - My socials\n[[;rgba(245, 40, 145, 0.99);;]banner]\t\t     - display the banner\n[[;rgba(245, 40, 145, 0.99);;]email]\t\t     - send me an e-mail');
             },
             about: function() {
-                this.echo('\nHi ! My name is Marwane Bourdim. \nI am a recent math graduate from Université Paris-Cité and Sorbonne Université and [[b;rgba(250, 251, 180, 1);;]I am currently on the job market for data scientist and quantitative analyst positions].');
-                this.echo('At the moment, I have had the opportunity to do two very enriching research internships:\nThe first one at INRIA Paris-Saclay in the SIMBIOTX lab where I applied cellular proliferation models to model pandemic dynamics. \nThe second one at the European Research Institute in the Cancer Genomics lab in Cambridge (UK) where I used NMF to guess the proportions of different cell types in heteregeneous samples. ');
-                this.echo('Right after my second research internship, I became a teacher for 6 months from february to june 2023 at the prestigious Ecole Alsacienne in Paris. \n')
-                this.echo('My goal is to use math and computer science for the greater good, learn more about ourselves and have fun :)');
-                this.echo('[[b;rgba(250, 251, 180, 1);;]I am also interested in phd projects in machine Learning and mathematics], especially applied to biology, personalised medecine,\nlinguistics and interspecies communication (a soft spot of mine is the CETI project)!');
-                this.echo('Apart from math, I\'m passionate about philosophy, drawing and teaching.\n');
+                this.echo(about_.innerHTML);
             },
             banner: function() {
                 this.echo(greetings.innerHTML);
             },
             education: function() {
-                this.echo('\n[[b;rgba(250, 251, 180, 1);;]Master\'s degree in Mathematics, Statistics and Machine Learning]');
-                this.echo('Université Paris-Cité, France | 2021 ~ 2022 \n');
-                this.echo('\n[[b;rgba(250, 251, 180, 1);;]Master\'s degree in Mathematical Modeling]');
-                this.echo('Sorbonne Université, France | 2020 ~ 2021 \n');
-                this.echo('\n[[b;rgba(250, 251, 180, 1);;]Bachelor\'s degree in Pure Mathematics]');
-                this.echo('Université Paris-Cité, France | 2018 ~ 2019 \n');
-                this.echo('\n[[b;rgba(250, 251, 180, 1);;]Classe préparatoire aux grandes écoles MPSI-MP]');
-                this.echo('Lycée Jacques Decour, France | 2016 ~ 2018 \n');
-                this.echo('\n[[b;rgba(250, 251, 180, 1);;]IELTS 8]');
-                this.echo('British Council | 2022 \n');
+                this.echo(education_.innerHTML);
             },
             projects: function() {
-                this.echo('\n[[b;rgba(250, 251, 180, 1);;]Cellular deconvolution algorithms for nanopore bulk methylation data]');
-                this.echo('[[i;rgba(168, 218, 141, 1);;]Supervised by Isidro Cortés-Ciriano at European Bioinformatics Institute in the Cancer Genomics lab in Cambridge, United Kingdom  | February 2022 ~ January 2023]');
-                this.echo('[[i;rgba(168, 218, 141, 1);;]Programming language: Python');
-                this.echo('[[;rgba(250, 251, 180, 1);;]Semi-technical summary:] DNA methylation is a process by which a certain molecule binds to parts of our DNA. It plays an important role \nin the expression of our DNA and thus, different cell types have got different patterns of methylation. \nMost of the time, in biology and medecine when we collect a sample, it is made of plenty of different cell types.\nWhen we know the "typical" methylation pattern of given cell types we can lever the fact that different cell types have different methylation patterns \nto estimate the proportions of the different cell types in a heteregeneous sample.\nDuring this internship, I developped two different machine learning algorithms to do so, and one can even estimate the proportion of "unknown" cell types. \n(those for which we don\'t have their typical methylation patterns. )\n');
-                this.echo('[[;rgba(250, 251, 180, 1);;]Technical summary:] I developped two methylation deconvolution algorithms for Nanopore data. \nOne supervised maximum-likelihood-estimation binomial regression algorithm \nand an unsupervised modified version of NMF to co-estimate the proportions of the known celltypes, the proportion of unknowns cell types and the average methylation profile of the latter. \n\n');
-
-
-                this.echo('\n[[b;rgba(250, 251, 180, 1);;]Mathematical and computational modeling of the Covid-19 pandemic in France with a spatio-temporal stochastic framework,]');
-                this.echo('[[i;rgba(168, 218, 141, 1);;]Supervised by Dirk Drasdo and Jules Dichamp at INRIA in the SIMBIOTX lab in Paris, France | April 2021 ~ September 2022]');
-                this.echo('[[i;rgba(168, 218, 141, 1);;]Programming language: Python');
-                this.echo('[[;rgba(250, 251, 180, 1);;]Semi-technical summary:] We modeled the different French regions by nodes on a graph and we consider every one of those nodes as a compartment. \nInside of a compartment there are healthy, infected and recovered people. The frequency at which a healthy individual gets infected in a \ncompartment depends on the number of people in those 3 populations in the compartment. \nWe coded a simulation of this model to study the evolution of those populations and then added complexity to the model by \nadding different strands of the virus, a "return-to-home" model for more realistic individual movements and looked at different \ntype of graph structures to study the influence of the topology on the pandemic dynamic (centralized vs federal country). \n');
-                this.echo('[[;rgba(250, 251, 180, 1);;]Technical summary:] We developped a variety of SIR compartment agent-based models via a set of Masters equations and we used the Gillespie algorithm for the simulations. \n\n');
+                this.echo(projects_.innerHTML);
             },
             socials: function() {
                 this.echo('- Linkedin \t\t https://www.linkedin.com/in/marwane-bourdim-5126741a9/\n- Github \t\t https://github.com/MarwaneBourdim\n- Twitter \t\t https://twitter.com/GenerateLakatos');
